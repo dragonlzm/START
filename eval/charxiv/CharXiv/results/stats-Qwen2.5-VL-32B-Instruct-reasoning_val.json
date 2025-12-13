@@ -1,0 +1,38 @@
+{
+    "Overall Score": 47.6,
+    "By Answer Type": {
+        "Text-in-Chart": 50.91,
+        "Text-in-General": 60.61,
+        "Number-in-Chart": 46.98,
+        "Number-in-General": 36.24
+    },
+    "By Source": {
+        "GPT-Sourced": 52.72,
+        "GPT-Inspired": 49.07,
+        "Completely Human": 45.5
+    },
+    "By Subject": {
+        "Computer Science": 50.79,
+        "Economics": 45.65,
+        "Electrical Engineering and Systems Science": 43.7,
+        "Mathematics": 54.81,
+        "Physics": 48.03,
+        "Quantitative Biology": 49.21,
+        "Quantitative Finance": 43.97,
+        "Statistics": 43.36
+    },
+    "By Year": {
+        "2020": 44.53,
+        "2021": 51.34,
+        "2022": 45.08,
+        "2023": 49.19
+    },
+    "By Subplot": {
+        "1 Subplot": 50.78,
+        "2-4 Subplots": 46.3,
+        "5+ Subplots": 44.49
+    },
+    "N_valid": 1000,
+    "N_invalid": 0,
+    "Question Type": "Reasoning"
+}
