@@ -5,8 +5,9 @@
 <h1 align="center">📊 START: Spatial and Textual Learning for Chart Understanding</h1>
 
 <p align="center">
+  <a href="https://dragonlzm.github.io/START/"><img src="https://img.shields.io/badge/Project-Homepage-176d71" alt="Project homepage"></a>
   <a href="https://arxiv.org/abs/2512.07186"><img src="https://img.shields.io/badge/arXiv-2512.07186-red"></a>
-  <a href="https://huggingface.co/papers/2512.07186"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Homepage-purple"></a>
+  <a href="https://huggingface.co/papers/2512.07186"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Paper-purple"></a>
   <a href="https://huggingface.co/zhuomingliu/START"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue"></a>
   <a href="https://huggingface.co/datasets/zhuomingliu/START-Dataset"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-orange"></a>
   <a href="https://huggingface.co/datasets/zhuomingliu/CS-Bench"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Benchmark-green"></a>
