@@ -6,8 +6,16 @@
   const links = Array.from(navigation?.querySelectorAll('a[href^="#"]') || []);
   const sections = Array.from(document.querySelectorAll('[data-section][id]'));
 
+  const setActiveSection = (id) => {
+    links.forEach((link) => {
+      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
   links.forEach((link) => {
     link.addEventListener('click', () => {
+      setActiveSection(link.hash.slice(1));
       if (window.matchMedia('(max-width: 1500px)').matches) {
         navigation.open = false;
         const target = document.getElementById(link.hash.slice(1));
@@ -24,21 +32,32 @@
     });
   });
 
-  if ('IntersectionObserver' in window && sections.length) {
-    const visible = new Set();
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(({ target, isIntersecting }) => {
-        if (isIntersecting) visible.add(target);
-        else visible.delete(target);
-      });
-      const active = sections.find((section) => visible.has(section));
-      if (!active) return;
-      links.forEach((link) => {
-        if (link.hash === `#${active.id}`) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-    }, { rootMargin: '-10% 0px -55% 0px', threshold: 0 });
-    sections.forEach((section) => observer.observe(section));
+  if (sections.length) {
+    let framePending = false;
+    const updateActiveSection = () => {
+      framePending = false;
+      const marker = Math.max(64, window.innerHeight * 0.25);
+      let active = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= marker) active = section;
+      }
+      // A short final section cannot always reach the marker: scrolling is
+      // clamped at the end of the document. Still highlight Citation there.
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        active = sections[sections.length - 1];
+      }
+      setActiveSection(active.id);
+    };
+    const scheduleUpdate = () => {
+      if (framePending) return;
+      framePending = true;
+      window.requestAnimationFrame(updateActiveSection);
+    };
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    window.addEventListener('hashchange', scheduleUpdate);
+    window.addEventListener('load', scheduleUpdate);
+    updateActiveSection();
   }
 
   const copyStatus = document.querySelector('.copy-status');

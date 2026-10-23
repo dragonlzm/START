@@ -28,7 +28,7 @@ After committing and pushing the page, configure GitHub Pages to serve the repos
 | Method Overview | How is the data used? | Spatial grounding, textual code generation, and chart QA in SFT/RL; link to paper Section 3.1. |
 | Performance | How does the released model perform? | Exact two-model release table from README, with absolute score improvements. |
 | Qualitative Examples | What does supervision look like? | Original dataset figure plus a condensed, explicitly labeled released multi-round SFT annotation example. |
-| Resources | Where do I get started? | Data, benchmark, raw code, checkpoint, repository, paper, configurable evaluation commands, training-code availability. |
+| Resources | Where do I get started? | Data, benchmark, raw code, checkpoint, repository, and paper links. |
 | Citation | How should I cite or contact the authors? | README BibTeX and author contact. |
 
 Primary sources:

@@ -463,8 +463,6 @@ tbody th {
 .resource-grid p {
   font-size:16px;
   line-height:1.6}
-.quickstart {
-  margin-top:42px}
 .code-heading {
   display:flex;
   justify-content:space-between;
@@ -496,15 +494,7 @@ pre {
   color:#33464b}
 code {
   font-family:"SFMono-Regular",Consolas,monospace}
-.other-evals {
-  font-size:15px;
-  margin-top:18px}
 .release-note {
-  margin-top:26px;
-  padding:18px 20px;
-  background:var(--tint);
-  border-left:3px solid #7baba0;
-  font-size:16px}
 .contact {
   margin-top:24px;
   font-size:16px}
@@ -606,8 +596,6 @@ dialog p {
 }
 
 @media(min-width:1501px) {
-  main,footer {
-  padding-right:220px}
 .hero {
   padding-left:40px;
   padding-right:40px}

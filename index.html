@@ -14,8 +14,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://dragonlzm.github.io/START/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/site.css">
-  <script src="assets/site.js?v=2" defer></script>
+  <link rel="stylesheet" href="assets/site.css?v=3">
+  <script src="assets/site.js?v=3" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#introduction">Skip to content</a>
@@ -86,7 +86,7 @@
       <div><span class="small-label">Supervised fine-tuning</span><strong>399,897</strong><span>annotations · 70,652 unique images</span></div>
       <div><span class="small-label">Reinforcement learning</span><strong>39,211</strong><span>annotations · 3,979 unique images</span></div>
     </div>
-    <p class="source-note">Statistics for the reproduced public release. Image counts are reported per split and should not be summed as a deduplicated total. <a href="https://github.com/dragonlzm/START#2-reproduced-start-dataset">Source: repository release</a>.</p>
+    <!-- <p class="source-note">Statistics for the reproduced public release. Image counts are reported per split and should not be summed as a deduplicated total. <a href="https://github.com/dragonlzm/START#2-reproduced-start-dataset">Source: repository release</a>.</p> -->
     <figure class="media-figure pipeline-figure">
       <a href="images/data_pipeline.png" data-lightbox><img src="images/data_pipeline.png" width="3657" height="2635" alt="START data construction pipeline: translate real chart images into executable code, evolve code to recover chart-element locations, and create spatial and textual training annotations." loading="lazy" decoding="async"></a>
       <figcaption><strong>From real charts to grounded training data.</strong> The paper’s data-generation pipeline recovers code and chart-element locations. Select any figure to inspect it at full size.</figcaption>
@@ -139,7 +139,7 @@
     </div>
     <figure class="media-figure wide-figure">
       <a href="images/bench.png" data-lightbox><img src="images/bench.png" width="5522" height="1342" alt="Paper examples of CS-Bench questions and chart regions, illustrating chart-element grounding and question answering with spatial grounding." loading="lazy" decoding="async"></a>
-      <figcaption>The paper’s CS-Bench illustration. The statistics above describe the reproduced public release: 692 questions on 600 images; the original paper reports 613 images.</figcaption>
+      <figcaption>The paper’s CS-Bench illustration. The statistics above describe the reproduced public release: 692 questions on 600 images.</figcaption>
     </figure>
     <div class="two-columns metric-explainer">
       <div><h3>How is it evaluated?</h3><p><strong>Recall@0.3</strong> measures localization at an intersection-over-union (IoU) threshold of 0.3. <strong>Answer accuracy</strong> measures correctness on QA-grounding questions. The provided evaluator also reports Recall@0.5.</p></div>
@@ -186,23 +186,7 @@
       <a href="https://github.com/dragonlzm/START"><span class="small-label">Repository</span><h3>Code &amp; predictions <span aria-hidden="true">↗</span></h3><p>Data preprocessing, evaluation scripts, and saved outputs.</p></a>
       <a href="https://arxiv.org/abs/2512.07186"><span class="small-label">Paper</span><h3>Read the research <span aria-hidden="true">↗</span></h3><p>Method, original experiments, ablations, and appendices.</p></a>
     </div>
-    <div class="reading-width quickstart">
-      <h3>Evaluate the released checkpoint</h3>
-      <p>First follow the <a href="https://github.com/dragonlzm/START#1-install">environment setup</a> and <a href="https://github.com/dragonlzm/START/blob/main/eval/cs_bench/README.md">CS-Bench instructions</a>, download the benchmark, and replace the annotation and image paths below with your local paths.</p>
-      <div class="code-heading"><span>Run from the START repository</span><button type="button" data-copy-target="eval-code">Copy commands</button></div>
-      <pre><code id="eval-code">python eval/cs_bench/inference_with_vllm.py \
-  --annotation_path /path/to/CS-Bench/annotations.json \
-  --image_root /path/to/CS-Bench/images \
-  --model_name zhuomingliu/START \
-  --batch_size 8 \
-  --output_file ./predictions/cs_bench_predictions_start.json
 
-python eval/cs_bench/compute_the_stat_from_eval_file.py \
-  --pred_res_path ./predictions/cs_bench_predictions_start.json \
-  --save_res_path ./predictions/cs_bench_statistics_start.json</code></pre>
-      <p class="other-evals">Other evaluations: <a href="https://github.com/dragonlzm/START/blob/main/eval/charxiv/README.md">CharXiv</a> · <a href="https://github.com/dragonlzm/START/blob/main/eval/chartqapro/README.md">ChartQAPro</a> · <a href="https://github.com/dragonlzm/START/blob/main/eval/chartmimic/README.md">ChartMimic</a></p>
-      <aside class="release-note"><strong>What’s next: training code.</strong> The repository currently lists training code as coming soon. The dataset, benchmark, checkpoint, preprocessing tools, and evaluation scripts are already linked above.</aside>
-    </div>
   </section>
 
   <section class="section tinted" id="citation" data-section>
